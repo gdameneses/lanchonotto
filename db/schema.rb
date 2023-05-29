@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_204424) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_211233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,4 +22,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_204424) do
     t.integer "price"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price"
+    t.string "payment"
+  end
+
+  create_table "pizzas", force: :cascade do |t|
+    t.integer "size"
+    t.integer "price"
+    t.string "crust"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "notes"
+  end
+
+  create_table "topping_choices", force: :cascade do |t|
+    t.bigint "topping_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "pizza_id"
+    t.integer "pieces"
+    t.index ["topping_id"], name: "index_topping_choices_on_topping_id"
+  end
+
+  create_table "toppings", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "topping_choices", "toppings"
 end
