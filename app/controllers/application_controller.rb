@@ -4,11 +4,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_order
-    if session[:order_id]
-      @order = Order.find(session[:order_id])
-    else
-      @order = Order.create()
-      session[:order_id] = @order.id
-    end
+    order_id = session[:order_id]
+    @order = Order.find_or_create_by(id: order_id)
+    session[:order_id] = @order.id
   end
 end
