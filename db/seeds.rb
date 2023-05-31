@@ -13,6 +13,11 @@ Topping.create(name: "Crocante", price: 400)
 Topping.create(name: "Strogonoff", price: 440)
 Topping.create(name: "Camarão", price: 440)
 Topping.create(name: "Especial", price: 440)
+puts 'Creating crusts'
+Crust.create(name: "Simples", price: 0)
+Crust.create(name: "Recheada Catupiry", price: 600)
+Crust.create(name: "Recheada Cheddar", price: 600)
+
 puts 'Creating drinks'
 Drink.create(name: "Pepsi", price: 650, picture: '')
 Drink.create(name: "Coca-cola", price: 700, picture: '')

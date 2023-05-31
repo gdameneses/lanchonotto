@@ -30,6 +30,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+# Use simple form to generate forms easily
+gem 'simple_form', '~> 5.2'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

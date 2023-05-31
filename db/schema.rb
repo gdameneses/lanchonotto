@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_211233) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_142232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crusts", force: :cascade do |t|
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
@@ -32,7 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_211233) do
   create_table "pizzas", force: :cascade do |t|
     t.integer "size"
     t.integer "price"
-    t.string "crust"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "notes"
@@ -42,8 +48,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_211233) do
     t.bigint "topping_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "pizza_id"
     t.integer "pieces"
+    t.bigint "pizza_id"
+    t.index ["pizza_id"], name: "index_topping_choices_on_pizza_id"
     t.index ["topping_id"], name: "index_topping_choices_on_topping_id"
   end
 
