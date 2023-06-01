@@ -6,9 +6,9 @@
       </div>
     </div>
     <div class="navigation">
-      <a href="#top" class="navbar-item">Início</a>
-      <a href="#about" class="navbar-item">Menu</a>
-      <a href="#about" class="navbar-item">Ver Carrinho</a>
+      <%= link_to 'Início', root_path, class: 'navbar-item' %>
+      <%= link_to 'Menu', menu_path, class: 'navbar-item' %>
+      <%= link_to 'Carrinho', order_path, class: 'navbar-item' %>
     </div>
   </section>
 </body>

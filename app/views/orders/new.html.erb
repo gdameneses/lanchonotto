@@ -1,7 +1,86 @@
-<h1>Novo pedido</h1>
-<h2>Comece criando sua pizza</h2>
-<%= simple_form_for @pizza do |f| %>
-  <div>
-    Tamanho <%= f.select :size, [4, 8, 12, 16] %> <%= f.submit "Definir" %>
+<section class="container-fluid order-header">
+  <div class="nav-spacer"></div>
+
+  <div class="order-header container-fluid">
+    <div class="container">
+      <h2 class="order-title">Monte sua Pintssa</h2>
+    </div>
   </div>
-<% end %>
+</section>
+<section class="order-body container d-flex">
+  <section class="pizza-new col-12 col-lg-6">
+    <div class="order-field size-field">
+      <h4 class="order-body-title">
+        Tamanho
+      </h4>
+      <select name="size" id="size">
+        <option value="4">Broto (x4)</option>
+        <option value="8">Média (x8)</option>
+        <option value="12">Grande (x12)</option>
+        <option value="16">Gigaaaante (x16)</option>
+      </select>
+    </div>
+    <div class="order-field topping-field">
+      <h4 class="order-body-title">
+        Sabor
+      </h4>
+      <div class="d-flex m-0 p-0">
+        <div class="topping-choice">
+          Frango com nada
+        </div>
+      </div>
+      <div class="btn btn-primary new-topping mt-2">
+        + Adicionar cobertura
+      </div>
+    </div>
+    <div class="order-field crust-field">
+      <h4 class="order-body-title">
+        Borda
+      </h4>
+      <select name="size" id="size">
+        <option value="simples">Simples</option>
+        <option value="catupiry">Catupiry</option>
+        <option value="cheddar">Cheddar</option>
+      </select>
+    </div>
+    <div class="btn btn-secondary">
+      + Adicionar ao pedido
+    </div>
+    </section>
+    <section class="order-summary col-12 col-lg-6">
+      <div class="order-show card">
+        <h3 class="order-modal-title card-header">Pedido</h3>
+        <div class="card-body">
+          <div class="product">
+            <p class="product-title">-Pizza do tamanho do seu pai (x8)</p>
+            <p class="product-description">-Frango com nada</p>
+            <p class="product-description">-Borda simples</p>
+          </div>
+          <div class="product">
+            <p class="product-title">-Pizza do tamanho da sua mamis (x16)</p>
+            <p class="product-description">-Frango com tudo</p>
+            <p class="product-description">-Portuguesa</p>
+            <p class="product-description">-Camarão</p>
+            <p class="product-description">-Borda simples</p>
+          </div>
+          <div class="product">
+            <p class="product-title">- Pepsi 330ml</p>
+          </div>
+          <div class="product">
+            <p class="product-title">- Pepsi 330ml</p>
+          </div>
+          <div class="product">
+            <p class="product-title">- Pepsi 330ml</p>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <h3 class="footer-title">
+            Total
+          </h3>
+          <h3 class="footer-title">
+            R$180,90
+          </h3>
+        </div>
+      </div>
+    </section>
+</section>

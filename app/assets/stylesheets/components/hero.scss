@@ -6,8 +6,12 @@
   // background-color: #A33829;
   background-color: #A33829;
   padding: 2rem;
-  height: 70vh;
+  height: 640px;
   color: #F2F2F2;
+}
+
+.nav-spacer {
+  padding-top: 88px !important;
 }
 
 .hero-content-text {
@@ -35,7 +39,7 @@
   position: absolute;
   width: 1416px;
   height: 1280px;
-  left: -632px;
+  right: 55%;
   top: -480px;
   border-radius: 50%;
 

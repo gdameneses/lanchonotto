@@ -1,0 +1,61 @@
+.order-header {
+  background-color: #A33829;
+  color: #F1F1F1;
+}
+
+.order-title {
+  font-family: Lemonada, cursive;
+  text-align: end;
+  padding: 3rem 0;
+  font-size: 48px;
+}
+
+.order-body {
+  h4 {
+    color: #A33829;
+    font-family: Lemonada, cursive;
+    font-weight: 600;
+    font-size: 36px;
+  }
+}
+
+.order-field {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.order-field select {
+  background-color: #D1D1D1;
+  border: none;
+  width: 320px;
+  padding: 1rem;
+  color: #666;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+.order-field .topping-choice {
+  background-color: #D1D1D1;
+  border-radius: 4px;
+  color: #666;
+  font-size: 24px;
+  width: 320px;
+  padding: 1rem;
+}
+
+.order-show {
+  margin-top: 2rem;
+
+  h3 {
+    text-align: center;
+  }
+  .product-title {
+    font-weight: bold;
+  }
+
+  .product-description {
+    padding-left: 2rem;
+    color: #666;
+
+  }
+}
