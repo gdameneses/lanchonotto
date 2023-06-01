@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap');
+.hero {
+  // background-image: url('hero-bg.svg');
+  // background-size: cover;
+  // background-position: bottom;
+  // background-color: #A33829;
+  background-color: #A33829;
+  padding: 2rem;
+  height: 70vh;
+  color: #F2F2F2;
+}
+
+.hero-content-text {
+  z-index: 2;
+  text-shadow: 1px 1px 1px black;
+  h1, h2 {
+    font-family: 'Lemonada', cursive;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 80px;
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 64px;
+  }
+}
+
+.hero-img img {
+  z-index: 1;
+  position: relative;
+}
+.hero-img .circle {
+  z-index: 0;
+  position: absolute;
+  width: 1416px;
+  height: 1280px;
+  left: -632px;
+  top: -480px;
+  border-radius: 50%;
+
+  background: #FFA800;
+  box-shadow: 4px 2px 3px -1px rgba(0, 0, 0, 0.26);
+}

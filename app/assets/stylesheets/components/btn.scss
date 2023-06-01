@@ -1,0 +1,16 @@
+.cta {
+  width: fit-content;
+  padding: 1rem;
+  color: #F1F1F1;
+  font-size: 48px;
+  font-weight: 600;
+  border-radius: 16px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.hero-btn .btn:hover {
+  scale: 1.1;
+  transition: 0.2s;
+  color: #F1F1F1;
+  box-shadow: 0 0 8px "primary";
+}
