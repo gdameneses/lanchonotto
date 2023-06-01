@@ -1,3 +1,4 @@
+<h1>Lanchonotto</h1>
 Many restaurants struggle with paying fees to big companies just to get their business online. With Lanchonotto you can simply host your website with almost no database storage needed and you will have your own website that skips middle people. It links your kitchen to your customer. That's it. No fees, no apps. Your site.
 
 Lanchonotto is a web-based app aimed for restaurant owners who want to skip middlemans such as Uber Eats and similars.
@@ -14,15 +15,12 @@ Estimated time of deploy: 02/06/2023.
 
 For developers and techy geeks:
 
-Things you may want to cover:
-
 * Ruby version 3.2.2
 
 * System dependencies
   Simpleform, cssbundling-rails, jsbundling-rails, bootstrap 5 and postgresql
   
-  
-  Make sure to check "how to add bootstrap to rails 7 from mixandgo" as it comes with foreman built in and some other really cool stuff.
+    Make sure to check "how to add bootstrap to rails 7 from mixandgo" as it comes with foreman built in and some other really cool stuff.
 
 * Configuration
   You don't actually need much. Just run the server by running the command 'dev' to make your SASS compile quick into the CSS.
