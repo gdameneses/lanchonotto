@@ -3,4 +3,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @pizza = Pizza.new
   end
+  def show
+
+  end
 end
