@@ -1,6 +1,6 @@
+<div class="nav-color-fill"></div>
+<div class="nav-spacer-transparent"></div>
 <section class="container-fluid order-header">
-  <div class="nav-spacer"></div>
-
   <div class="order-header container-fluid">
     <div class="container">
       <h2 class="order-title">Monte sua Pintssa</h2>
@@ -47,40 +47,6 @@
       + Adicionar ao pedido
     </div>
     </section>
-    <section class="order-summary col-12 col-lg-6">
-      <div class="order-show card">
-        <h3 class="order-modal-title card-header">Pedido</h3>
-        <div class="card-body">
-          <div class="product">
-            <p class="product-title">-Pizza do tamanho do seu pai (x8)</p>
-            <p class="product-description">-Frango com nada</p>
-            <p class="product-description">-Borda simples</p>
-          </div>
-          <div class="product">
-            <p class="product-title">-Pizza do tamanho da sua mamis (x16)</p>
-            <p class="product-description">-Frango com tudo</p>
-            <p class="product-description">-Portuguesa</p>
-            <p class="product-description">-Camarão</p>
-            <p class="product-description">-Borda simples</p>
-          </div>
-          <div class="product">
-            <p class="product-title">- Pepsi 330ml</p>
-          </div>
-          <div class="product">
-            <p class="product-title">- Pepsi 330ml</p>
-          </div>
-          <div class="product">
-            <p class="product-title">- Pepsi 330ml</p>
-          </div>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <h3 class="footer-title">
-            Total
-          </h3>
-          <h3 class="footer-title">
-            R$180,90
-          </h3>
-        </div>
-      </div>
-    </section>
+    <%= render 'shared/order' %>
+
 </section>

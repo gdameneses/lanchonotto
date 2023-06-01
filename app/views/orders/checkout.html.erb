@@ -1,0 +1,28 @@
+<div class="nav-color-fill"></div>
+<div class="nav-spacer-transparent"></div>
+<section class="container-fluid order-header">
+  <div class="container">
+    <h1 class="order-title">Checkout</h1>
+  </div>
+</section>
+<section class="container">
+  <div class="container-header card-title p-4">
+    <div class="wrapper">
+      <h4 class="container-title">Preço total</h4>
+      <p class="container-text">R$180,90</p>
+    </div>
+    <div class="wrapper address">
+      <h4 class="container-title">
+        Endereço de entrega
+      </h4>
+      <form class="address-form">
+        <input class="first" type="text" id="street" name="street" placeholder="Rua da casa da silva, 29"><br>
+        <input type="text" id="postcode" name="postcode" placeholder="83503-050"><br>
+        <input type="text" id="reference" name="reference" placeholder="Próximo a igreja do quarto dia"><br>
+        <input type="text" id="phone" name="phone" placeholder="(41)99848-7878"><br>
+        <input type="text" id="postcode" name="postcode" placeholder="Observações. Ex: Troco para 50">
+        <%= link_to 'Confirmar', checkout_path, class: 'btn btn-outline-secondary btn-checkout w-80' %>
+    </form>
+    </div>
+  </div>
+</section>
