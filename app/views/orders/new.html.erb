@@ -9,11 +9,12 @@
 </section>
 <section class="order-body container d-flex">
   <section class="pizza-new col-12 col-lg-6">
+<%= simple_form_for @pizza do |f| %>
     <div class="order-field size-field">
       <h4 class="order-body-title">
         Tamanho
       </h4>
-      <select name="size" id="size">
+      <select name="pizza[size]" id="pizza_size">
         <option value="4">Broto (x4)</option>
         <option value="8">Média (x8)</option>
         <option value="12">Grande (x12)</option>
@@ -24,13 +25,17 @@
       <h4 class="order-body-title">
         Sabor
       </h4>
-      <div class="d-flex m-0 p-0">
-        <div class="topping-choice">
-          Frango com nada
-        </div>
+      <div class="">
+
+        <% @pizza.topping_choices.each do |topping_choice| %>
+          <div class="topping-choice"><%= topping_choice.topping.name %></div>
+        <% end %>
       </div>
       <div class="btn btn-primary new-topping mt-2">
-        + Adicionar cobertura
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Adicionar cobertura
+        </button>
+
       </div>
     </div>
     <div class="order-field crust-field">
@@ -43,10 +48,27 @@
         <option value="cheddar">Cheddar</option>
       </select>
     </div>
-    <div class="btn btn-secondary">
-      + Adicionar ao pedido
-    </div>
+    <%= f.submit class:'btn btn-secondary' %>
+    <% end %>
+
+
     </section>
     <%= render 'shared/order' %>
-
 </section>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Escolha uma cobertura</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'shared/new_topping_choice' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

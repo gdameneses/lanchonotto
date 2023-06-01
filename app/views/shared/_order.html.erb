@@ -2,6 +2,14 @@
   <div class="order-show card">
     <h3 class="order-modal-title card-header">Pedido</h3>
     <div class="card-body">
+      <% @order.products.each do |p| %>
+      <div class="product">
+        <div class="product-title"><%= p.item_type %> (x<%= p.item.size %>)</div>
+        <% p.item.toppings.each do |topping| %>
+          <div class="product-description"><%= topping.name %></div>
+        <% end %>
+      </div>
+      <% end %>
       <div class="product">
         <p class="product-title">-Pizza do tamanho do seu pai (x8)</p>
         <p class="product-description">-Frango com nada</p>

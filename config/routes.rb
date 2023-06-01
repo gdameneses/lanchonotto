@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'checkout', to: 'orders#checkout'
   post 'orders', to: 'orders#create'
   get 'order', to: 'orders#show'
+  post 'topping_choices', to: 'topping_choices#create'
 end

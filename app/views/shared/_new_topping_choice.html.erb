@@ -1,0 +1,15 @@
+<form action="/topping_choices" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="topping_choice[pizza_id]" value="<%= @pizza.id %>">
+
+  <label>Topping Choices</label>
+  <% Topping.all.each do |topping| %>
+    <label for="topping_choice_<%= topping.id %>">
+      <input type="radio" id="topping_choice_<%= topping.id %>" name="topping_choice[topping_id]" value="<%= topping.id %>">
+      <%= topping.name %>
+    </label>
+  <% end %>
+
+  <input type="submit" value="Create Topping Choice">
+</form>
