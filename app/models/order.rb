@@ -1,4 +1,3 @@
 class Order < ApplicationRecord
-  has_many :drinks, through: :products
-  has_many :pizzas
+  has_and_belongs_to_many :products
 end
