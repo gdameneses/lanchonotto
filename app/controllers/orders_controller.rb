@@ -11,4 +11,13 @@ class OrdersController < ApplicationController
   def checkout
 
   end
+
+  def update
+    raise
+  end
+
+  def confirm
+    puts 'you called orders/confirm'
+    raise
+  end
 end

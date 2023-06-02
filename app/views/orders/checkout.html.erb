@@ -5,24 +5,25 @@
     <h1 class="order-title">Checkout</h1>
   </div>
 </section>
-<section class="container">
-  <div class="container-header card-title p-4">
-    <div class="wrapper">
+<section class="container d-flex flex-row justify-content-center">
+  <div class="container-header col-lg-6 ">
+    <div class="wrapper  p-4 pb-0 price-border">
       <h4 class="container-title">Preço total</h4>
       <p class="container-text">R$180,90</p>
     </div>
     <div class="wrapper address">
-      <h4 class="container-title">
+      <h4 class="container-title address-title">
         Endereço de entrega
       </h4>
-      <form class="address-form">
+        <%= simple_form_for @order, url: 'order/confirm', html: { class: 'address-form card-body'} do |f|%>
         <input class="first" type="text" id="street" name="street" placeholder="Rua da casa da silva, 29"><br>
         <input type="text" id="postcode" name="postcode" placeholder="83503-050"><br>
         <input type="text" id="reference" name="reference" placeholder="Próximo a igreja do quarto dia"><br>
         <input type="text" id="phone" name="phone" placeholder="(41)99848-7878"><br>
         <input type="text" id="postcode" name="postcode" placeholder="Observações. Ex: Troco para 50">
-        <%= link_to 'Confirmar', checkout_path, class: 'btn btn-outline-secondary btn-checkout w-80' %>
-    </form>
+          <%= f.submit 'Finalizar', class: 'btn btn-outline-secondary btn-checkout w-100' %>
+        <% end %>
+      </form>
     </div>
   </div>
 </section>

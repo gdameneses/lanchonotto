@@ -1,15 +1,17 @@
 <form action="/topping_choices" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
   <input type="hidden" name="topping_choice[pizza_id]" value="<%= @pizza.id %>">
-
-  <label>Topping Choices</label>
-  <% Topping.all.each do |topping| %>
-    <label for="topping_choice_<%= topping.id %>">
-      <input type="radio" id="topping_choice_<%= topping.id %>" name="topping_choice[topping_id]" value="<%= topping.id %>">
-      <%= topping.name %>
-    </label>
+  <div class="modal-body d-flex flex-column">
+    <% Topping.all.each do |topping| %>
+          <input type="radio" id="topping_choice_<%= topping.id %>" name="topping_choice_[topping_id]" value="<%= topping.id %>">
+        <label for="topping_choice_<%= topping.id %>" class="topping-choice order-selection topping-choice flex-grow-1">
+          <%= topping.name %>
+        </label>
   <% end %>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+    <input type="submit" value="Adicionar" class="btn btn-secondary">
+  </div>
 
-  <input type="submit" value="Create Topping Choice">
+</div>
 </form>

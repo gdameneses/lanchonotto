@@ -1,5 +1,5 @@
-.address-form input {
-  width: 80%;
+.address-form input[type="text"] {
+  width: 100%;
   margin: 1px 0;
   height: 40px;
   border-radius: 2px;
@@ -8,9 +8,21 @@
 
 }
 
-    #street {
-      border-radius: 8px 8px 2px 2px;
-    }
-.w-80 {
-  width: 80%;
+#street {
+  border-radius: 2px;
+}
+
+.price-border {
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+
+.address-title {
+  background: #888;
+  color: #F1F1F1;
+  margin: 1rem 0;
+  margin-bottom: 1px;
+  padding: 1rem 0.5rem;
+  border-radius: 8px 8px 2px 2px;
+  border: 1px solid #444;
 }
