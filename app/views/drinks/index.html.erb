@@ -1,4 +1,30 @@
 <div class="nav-color-fill"></div>
 <div class="nav-spacer-transparent"></div>
-<h1>Drinks#index</h1>
-<p>Find me in app/views/drinks/index.html.erb</p>
+<section class="container-fluid order-header">
+  <div class="container">
+    <h1 class="order-title">Drinks</h1>
+  </div>
+</section>
+<section class="container">
+  <div class="drinks-table d-flex justify-content-around flex-wrap">
+    <% @drinks.each do |drink| %>
+      <div class="card drink-card col-6 col-lg-3 m-2">
+        <div class="card-header">
+          <h4 class="card-title"><%= drink.name %> - 330ml</h4>
+        </div>
+        <div class="card-body">
+          <%= image_tag(drink.picture,  class: 'img-fluid') %>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <%= simple_form_for @product do |f| %>
+          <%= f.input :item,  as: :hidden, :input_html => { :value => drink.id } %>
+            <%= f.submit 'Adicionar', class:"btn btn-outline-secondary", id:"drink_#{drink.id}" %>
+          <% end %>
+          <h6 class="footer-title m-0">
+            R$<%= "%.2f" % (drink.price / 100.0) %>
+          </h6>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

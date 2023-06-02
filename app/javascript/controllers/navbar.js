@@ -22,6 +22,5 @@ const navbar = () => {
   navbar.addEventListener("click", expandNavbar);
   navbar.addEventListener("mouseleave", retractNavbar);
 }
-console.log('loaded navbar')
 
-navbar();
+export { navbar };

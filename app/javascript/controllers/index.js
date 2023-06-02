@@ -2,3 +2,6 @@
 
 import { application } from "./application"
 import { navbar } from "./navbar"
+
+
+navbar();
