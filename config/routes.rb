@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'menu', to: 'pages#menu'
   get 'pages/home'
   get 'pizzas/new'
+  get 'pizza', to: 'pizzas#create'
   get 'pizzas', to: 'pizzas#index'
   get 'drinks', to: 'drinks#index'
   get 'order/new', to: 'orders#new'
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
   post 'orders', to: 'orders#create'
   post 'topping_choices', to: 'topping_choices#create'
   post 'products', to: 'products#create'
+  post 'order/create_topping_choices', to: 'orders#create_topping_choices'
   patch 'order/confirm', to: 'orders#confirm'
 end

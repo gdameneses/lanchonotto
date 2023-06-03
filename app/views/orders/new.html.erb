@@ -9,7 +9,7 @@
 </section>
 <section class="order-body container d-flex">
   <section class="pizza-new col-12 col-lg-6">
-<%= simple_form_for @pizza do |f| %>
+<%= simple_form_for '@pizza' do |f| %>
     <div class="order-field size-field">
       <h4 class="order-body-title">
         Tamanho
@@ -26,7 +26,6 @@
         Sabor
       </h4>
       <div class="">
-
         <% @pizza.topping_choices.each do |topping_choice| %>
           <div class="topping-choice"><%= topping_choice.topping.name %></div>
         <% end %>
