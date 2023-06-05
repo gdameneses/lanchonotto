@@ -1,26 +1,43 @@
-  <div class="order-show card">
+  <div class="order-show card col-12">
     <h3 class="order-modal-title card-header">Pedido</h3>
     <div class="card-body">
       <% @order.products.each do |p| %>
-      <div class="product">
-          <div class="d-flex">
-            <div class="product-title"><%= p.item_type %> (x<%= p.item.size %>)</div>
-            <%= link_to 'X', delete_product_path(p), class:'btn btn-outline-secondary btn-delete', data: { turbo_method: :delete, turbo_confirm: "Remover item?" } %>
+        <% if p.item_type == "Pizza" %>
+        <div class="pizza product-item d-flex">
+          <div class="product-wrapper order-item flex-grow-1">
+            <div class="title=wraper d-flex justify-content-between flex-grow-1">
+              <h4 class="product-title flex-grow-1"><%= p.item_type %> - (x<%= p.item.size %>)</h4>
+              <h6 class="product-price"><%= "R$#{'%.2f' % (p.price / 100)}" %></h6>
           </div>
-        <% p.item.toppings.each do |topping| %>
-          <div class="product-description"><%= topping.name %></div>
+          <div class="product-toppings">
+            <% p.item.toppings.each do |topping| %>
+              <p class="product-description m-0">- <%= topping.name %></p>
+            <% end %>
+          </div>
+        </div>
+          <%= link_to 'X', delete_product_path(p), class:'btn btn-outline-secondary btn-delete-order', data: { turbo_method: :delete, turbo_confirm: "Remover item?" } %>
+        </div>
+
+      <% elsif p.item_type == "Drink" %>
+        <div class="drink product-item d-flex justify-content-between">
+          <div class="wrapper d-flex justify-content-between product-title order-item flex-grow-1">
+            <div class="product-name"><%= p.item.name %></div>
+            <h6 class="product-price"><%= "R$#{'%.2f' % (p.price / 100)}" %></h6>
+          </div>
+          <%= link_to 'X', delete_product_path(p), class:'btn btn-outline-secondary btn-delete-order', data: { turbo_method: :delete, turbo_confirm: "Remover item?" } %>
+        </div>
         <% end %>
-      </div>
       <% end %>
     <div class="card-footer d-flex justify-content-between">
       <h3 class="footer-title">
         Total:
       </h3>
-      <h3 class="footer-title">
-        <%= '@order.final_price' %>
+      <h3 class="footer-title order-price">
+        R$<%= "#{'%.2f' % (@order.price / 100)}"  %>
       </h3>
     </div>
   </div>
+
   <div class="container d-flex justify-content-center p-0">
-    <%= link_to 'Checkout', checkout_path, class: 'btn btn-outline-secondary btn-checkout col-12' %>
+    <%= link_to 'Checkout', order_address_path, class: 'btn btn-outline-secondary btn-checkout col-12' %>
   </div>

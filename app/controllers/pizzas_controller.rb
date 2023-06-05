@@ -4,13 +4,7 @@ class PizzasController < ApplicationController
 
   end
 
-  def new
-    @pizza = Pizza.new
-  end
-
   def build
-    show_pizza
-    puts 'at build AQUIAQUIQAUI*/-*/-*/-*/  ' + @pizza.errors.first.message unless @pizza.errors.empty?
     @pizza
   end
 
@@ -25,9 +19,11 @@ class PizzasController < ApplicationController
       @pizza.save
       @product = Product.new
       @product.item = @pizza
+      @product.price = set_pizza_price
       @order.products << @product
+
       session.delete(:pizza_id)
-      redirect_to @order, notice: 'Pizza was successfully updated.'
+      redirect_to '/pizzas/build'
     else
       @pizza.errors.add(:size, :too_small, message: "Você só pode ter 1 sabor a cada 4 pedaços!")
       render(:build, status: :unprocessable_entity)
@@ -42,7 +38,7 @@ class PizzasController < ApplicationController
     @topping_choice.pizza = @pizza
     @topping_choice.save
     @pizza.save
-    redirect_to '/pizzas/build'
+    redirect_to build_pizza_path
   end
 
   private
@@ -54,16 +50,25 @@ class PizzasController < ApplicationController
     @pizza
   end
 
-  def show_pizza
-    puts '*'
-    puts '*'
-    puts '*'
-    puts '*'
-    puts '*'
-    puts @pizza.nil? ? '@pizza is nil' : "pizza is #{@pizza.id}"
-    puts '*'
-    puts '*'
-    puts '*'
-    puts '*'
+  def set_pizza_price
+    prices = []
+    pieces = @pizza.size / @pizza.toppings.count
+    @pizza.toppings.each do |t|
+      prices << t.price * pieces
+    end
+    prices << set_crust_price
+    prices.sum
+  end
+
+  def set_crust_price
+    crust_price = 10
+    if @pizza.crust == "simples"
+      crust_price += 0
+    elsif @pizza.crust == "catupiry"
+      crust_price += 40
+    elsif @pizza.crust == "cheddar"
+      crust_price += 40
+    end
+    @pizza.size * crust_price
   end
 end

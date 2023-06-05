@@ -8,9 +8,29 @@
   }
 
   .product-description {
-    padding-left: 2rem;
+    padding-left: 1rem;
     color: #666;
-
+  }
+  h4 {
+    margin-bottom: 0;
   }
   border-radius: 16px 16px 2px 2px;
+}
+
+
+.order-item {
+  padding: 0.5rem;
+  margin-right: 1px;
+  margin-bottom: 0;
+  border: 1px solid #888;
+  border-radius: 4px 2px 2px 4px;
+}
+
+.product-price {
+  font-size: 20px;
+}
+
+.product-item {
+  margin: 0.5rem;
+
 }

@@ -9,19 +9,21 @@
   <div class="container-header col-lg-6 ">
     <div class="wrapper  p-4 pb-0 price-border">
       <h4 class="container-title">Preço total</h4>
-      <p class="container-text">R$180,90</p>
+      <p class="container-text">
+        R$<%= "#{'%.2f' % (@order.price / 100)}"  %>
+      </p>
     </div>
     <div class="wrapper address">
       <h4 class="container-title address-title">
         Endereço de entrega
       </h4>
-        <%= simple_form_for @order, url: 'order/confirm', html: { class: 'address-form card-body'} do |f|%>
-        <input class="first" type="text" id="street" name="street" placeholder="Rua da casa da silva, 29"><br>
-        <input type="text" id="postcode" name="postcode" placeholder="83503-050"><br>
-        <input type="text" id="reference" name="reference" placeholder="Próximo a igreja do quarto dia"><br>
-        <input type="text" id="phone" name="phone" placeholder="(41)99848-7878"><br>
-        <input type="text" id="postcode" name="postcode" placeholder="Observações. Ex: Troco para 50">
-          <%= f.submit 'Finalizar', class: 'btn btn-outline-secondary btn-checkout w-100' %>
+        <%= simple_form_for @order, url: '/confirm', html: { class: 'address-form card-body'} do |f|%>
+          <input disabled class="first" type="text" id="street" name="street" placeholder="<%= params[:address][0].join %>"><br>
+          <input disabled type="text" id="postcode" name="postcode" placeholder="<%= params[:address][1].join %>"><br>
+          <input disabled type="text" id="reference" name="reference" placeholder="<%= params[:address][2].join %>"><br>
+          <input disabled type="text" id="phone" name="phone" placeholder="<%= params[:address][3].join %>"><br>
+          <input disabled type="text" id="notes" name="notes" placeholder="<%= params[:address][4].join %>">
+          <a href="<%= params[:link] %>" class="btn btn-outline-secondary btn-checkout w-100">Enviar!</a>
         <% end %>
       </form>
     </div>

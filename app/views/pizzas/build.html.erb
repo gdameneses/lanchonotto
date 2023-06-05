@@ -7,9 +7,25 @@
     </div>
   </div>
 </section>
-<section class="order-body container d-flex">
-  <div class="pizza-new col-12 col-lg-6">
+<section class="container d-flex">
+  <div class="order-body pizza-new col-12 col-lg-6">
     <%= simple_form_for @pizza do |f| %>
+      <div class="order-field topping-field">
+        <h4 class="order-body-title">
+          Sabor
+        </h4>
+        <% @pizza.topping_choices.each do |topping_choice| %>
+          <div class="d-flex">
+            <div class="topping-choice"><%= topping_choice.topping.name %></div>
+              <%= link_to 'X', delete_topping_choice_path(topping_choice), class:'btn btn-outline-secondary btn-delete', data: { turbo_method: :delete, turbo_confirm: "Remover sabor?" } %>
+            </div>
+        <% end %>
+        <div class="btn btn-primary new-topping mt-2">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Adicionar cobertura
+          </button>
+        </div>
+      </div>
         <div class="order-field size-field">
           <h4 class="order-body-title">
             Tamanho
@@ -21,23 +37,7 @@
             <option value="16">Gigaaaante (x16)</option>
           </select>
         </div>
-        <div class="order-field topping-field">
-          <h4 class="order-body-title">
-            Sabor
-          </h4>
-            <% @pizza.topping_choices.each do |topping_choice| %>
-              <div class="d-flex">
-                <div class="topping-choice"><%= topping_choice.topping.name %></div>
-                <%= link_to 'X', delete_topping_choice_path(topping_choice), class:'btn btn-outline-secondary btn-delete', data: { turbo_method: :delete, turbo_confirm: "Remover sabor?" } %>
-              </div>
-            <% end %>
-          <div class="btn btn-primary new-topping mt-2">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Adicionar cobertura
-            </button>
 
-          </div>
-        </div>
         <div class="order-field crust-field">
           <h4 class="order-body-title">
             Borda
@@ -49,12 +49,12 @@
           </select>
         </div>
         <% if @pizza.errors.count > 0 %>
-          <div class="errors"><%= @pizza.errors.first.message %></div>
+          <div class="errors flash-error"><%= @pizza.errors.first.message %></div>
         <% end %>
         <%= f.submit 'Adicionar ao pedido', class:'btn btn-secondary' %>
     <% end %>
   </div>
-  <div class="col-6 order-partial">
+  <div class="order-partial col-6">
     <%= render 'shared/order' %>
   </div>
 </section>

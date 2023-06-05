@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def create
-    raise
+
   end
 
   def destroy
