@@ -1,10 +1,12 @@
-<section class="order-summary col-6">
   <div class="order-show card">
     <h3 class="order-modal-title card-header">Pedido</h3>
     <div class="card-body">
       <% @order.products.each do |p| %>
       <div class="product">
-        <div class="product-title"><%= p.item_type %> (x<%= p.item.size %>)</div>
+          <div class="d-flex">
+            <div class="product-title"><%= p.item_type %> (x<%= p.item.size %>)</div>
+            <%= link_to 'X', delete_product_path(p), class:'btn btn-outline-secondary btn-delete', data: { turbo_method: :delete, turbo_confirm: "Remover item?" } %>
+          </div>
         <% p.item.toppings.each do |topping| %>
           <div class="product-description"><%= topping.name %></div>
         <% end %>
@@ -22,4 +24,3 @@
   <div class="container d-flex justify-content-center p-0">
     <%= link_to 'Checkout', checkout_path, class: 'btn btn-outline-secondary btn-checkout col-12' %>
   </div>
-</section>

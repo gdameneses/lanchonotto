@@ -1,0 +1,74 @@
+<div class="nav-color-fill"></div>
+<div class="nav-spacer-transparent"></div>
+<section class="container-fluid order-header">
+  <div class="order-header container-fluid">
+    <div class="container">
+      <h2 class="order-title">Monte sua Pintssa</h2>
+    </div>
+  </div>
+</section>
+<section class="order-body container d-flex">
+  <div class="pizza-new col-12 col-lg-6">
+    <%= simple_form_for @pizza do |f| %>
+        <div class="order-field size-field">
+          <h4 class="order-body-title">
+            Tamanho
+          </h4>
+          <select name="pizza[size]" id="pizza_size">
+            <option value="4">Broto (x4)</option>
+            <option value="8">Média (x8)</option>
+            <option value="12">Grande (x12)</option>
+            <option value="16">Gigaaaante (x16)</option>
+          </select>
+        </div>
+        <div class="order-field topping-field">
+          <h4 class="order-body-title">
+            Sabor
+          </h4>
+            <% @pizza.topping_choices.each do |topping_choice| %>
+              <div class="d-flex">
+                <div class="topping-choice"><%= topping_choice.topping.name %></div>
+                <%= link_to 'X', delete_topping_choice_path(topping_choice), class:'btn btn-outline-secondary btn-delete', data: { turbo_method: :delete, turbo_confirm: "Remover sabor?" } %>
+              </div>
+            <% end %>
+          <div class="btn btn-primary new-topping mt-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Adicionar cobertura
+            </button>
+
+          </div>
+        </div>
+        <div class="order-field crust-field">
+          <h4 class="order-body-title">
+            Borda
+          </h4>
+          <select name="pizza[crust]" id="pizza_crust">
+            <option value="simples">Simples</option>
+            <option value="catupiry">Catupiry</option>
+            <option value="cheddar">Cheddar</option>
+          </select>
+        </div>
+        <% if @pizza.errors.count > 0 %>
+          <div class="errors"><%= @pizza.errors.first.message %></div>
+        <% end %>
+        <%= f.submit 'Adicionar ao pedido', class:'btn btn-secondary' %>
+    <% end %>
+  </div>
+  <div class="col-6 order-partial">
+    <%= render 'shared/order' %>
+  </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header topping-header">
+        <h5 class="modal-title" id="exampleModalLabel">Escolha uma cobertura</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <%= render 'shared/new_topping_choice' %>
+      </div>
+  </div>
+</div>

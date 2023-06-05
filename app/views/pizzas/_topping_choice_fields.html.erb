@@ -1,4 +1,5 @@
-<form action="/pizza/create_topping_choices" method="post">
+<!-- _topping_choice_fields.html.erb -->
+<div class="topping-choice-fields">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="topping_choice[pizza_id]" value="<%= @pizza.id %>">
   <div class="modal-body d-flex flex-column">
@@ -14,4 +15,4 @@
   </div>
 
 </div>
-</form>
+</div>
