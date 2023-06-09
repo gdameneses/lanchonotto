@@ -6,7 +6,7 @@
   // background-color: #A33829;
   background-color: #A33829;
   padding: 2rem;
-  height: 640px;
+  height: 90vh;
   color: #F2F2F2;
 }
 
@@ -15,16 +15,20 @@
 .hero-content-text {
   z-index: 1;
   text-shadow: 1px 1px 1px black;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   h1, h2 {
     font-family: 'Lemonada', cursive;
   }
   h1 {
     font-weight: 600;
-    font-size: 80px;
+    font-size: 64px;
   }
   h2 {
     font-weight: 400;
-    font-size: 64px;
+    font-size: 48px;
   }
 }
 
@@ -47,6 +51,23 @@
 }
 
 @media (min-width: 992px) {
+  .hero {
+    height: 640px;
+  }
+  .hero-content-text {
+    display: initial;
+    h1, h2 {
+      font-family: 'Lemonada', cursive;
+    }
+
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 64px;
+    }
+  }
   .hero-img img {
     display: initial;
   }

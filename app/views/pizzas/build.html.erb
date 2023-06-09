@@ -3,11 +3,11 @@
 <section class="container-fluid order-header">
   <div class="order-header container-fluid">
     <div class="container">
-      <h2 class="order-title">Monte sua Pintssa</h2>
+      <h2 class="order-title">Monte sua Pizza</h2>
     </div>
   </div>
 </section>
-<section class="container d-flex">
+<section class="container d-flex flex-wrap">
   <div class="order-body pizza-new col-12 col-lg-6">
     <%= simple_form_for @pizza do |f| %>
       <div class="order-field topping-field">
@@ -54,7 +54,7 @@
         <%= f.submit 'Adicionar ao pedido', class:'btn btn-secondary' %>
     <% end %>
   </div>
-  <div class="order-partial col-6">
+  <div class="order-partial col-12 col-lg-6">
     <%= render 'shared/order' unless @order.products.empty? %>
   </div>
 </section>
