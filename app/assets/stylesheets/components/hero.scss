@@ -13,7 +13,7 @@
 
 
 .hero-content-text {
-  z-index: 2;
+  z-index: 1;
   text-shadow: 1px 1px 1px black;
   h1, h2 {
     font-family: 'Lemonada', cursive;
@@ -29,6 +29,7 @@
 }
 
 .hero-img img {
+  display: none;
   z-index: 1;
   position: relative;
 }
@@ -43,4 +44,10 @@
 
   background: #FFA800;
   box-shadow: 4px 2px 3px -1px rgba(0, 0, 0, 0.26);
+}
+
+@media (min-width: 992px) {
+  .hero-img img {
+    display: initial;
+  }
 }

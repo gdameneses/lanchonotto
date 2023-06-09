@@ -28,6 +28,7 @@
         </div>
         <% end %>
       <% end %>
+      <% if @order.price > 1 %>
     <div class="card-footer d-flex justify-content-between">
       <h3 class="footer-title">
         Total:
@@ -36,6 +37,7 @@
         R$<%= "#{'%.2f' % (@order.price / 100)}"  %>
       </h3>
     </div>
+      <% end %>
   </div>
 
   <div class="container d-flex justify-content-center p-0">

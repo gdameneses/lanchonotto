@@ -55,7 +55,7 @@
     <% end %>
   </div>
   <div class="order-partial col-6">
-    <%= render 'shared/order' %>
+    <%= render 'shared/order' unless @order.products.empty? %>
   </div>
 </section>
 
